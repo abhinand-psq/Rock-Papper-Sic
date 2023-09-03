@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <img width="80" onclick="rock('rock')" src="https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png" alt="">
+    <img width="80" onclick="papper('papper')" src="https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png" alt="">
+    <img width="80" onclick="scicoor('scicoor')" src="https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png" alt="">
+    </div>
+    
+<h4 style="text-transform: capitalize;" id="one"></h4>
+
+<div style="display: flex;">
+    <div>
+     <img width="50" id="myImg" src="" alt="">
+     <p style="display: none;" id="hide">computer</p>
+    </div>
+
+    <div>
+     <img width="50" id="myImg1" src="" alt="">
+     <p style="display: none; padding-left: 18px;" id="hide1">me</p>
+    </div>
+</div>
+
+<div  style="display: flex;">
+    <p>win : </p>
+    <p id="win"></p>
+</div>
+
+<div style="display: flex;">
+    <p>loss :</p>
+    <p id="loss"></p>
+</div>
+
+<div  style="display: flex;">
+    <p>tie :</p>
+    <p id="tie"></p>
+</div>
+
+<button onclick="reset()" >reset</button>
+    <script>
+
+     const com=['rock','papper','scicoor']
+     const result=document.getElementById('one')
+     const winrate=document.getElementById('win')
+     const lossrate=document.getElementById('loss')
+     const tierate=document.getElementById('tie')
+     tierate.innerHTML=0
+        lossrate.innerHTML=0
+        winrate.innerHTML=0
+    let win=0
+    let loss=0
+    let tie=0
+
+    function reset(){
+       var a=confirm('are you sure')
+       if(a){
+        tierate.innerHTML=tie=0
+        lossrate.innerHTML=loss=0
+        winrate.innerHTML=win=0
+       }else{
+         alert('ok')
+       }
+    }
+         function rock(a){
+
+            
+             document.getElementById('hide').style.display='block'
+             document.getElementById('hide1').style.display='block'
+
+            document.getElementById("myImg1").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png';
+
+            let x = Math.floor(Math.random() * 3);
+            let ans=com[x]
+
+            if(ans == a){
+                result.innerHTML='tie'
+                document.getElementById("myImg").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png';
+                tierate.innerHTML=tie=tie+1
+            }else if(ans != a){
+                  if(ans == 'papper'){
+                    result.innerHTML='lose'
+                    document.getElementById("myImg").src = "https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png";
+                    lossrate.innerHTML=loss=loss+1
+                  }else if(ans='scicoor'){
+                    result.innerHTML='win'
+                    document.getElementById("myImg").src = "https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png";
+                    winrate.innerHTML=win=win+1
+                  }
+            }
+             
+         }
+
+         function papper(a){
+            document.getElementById('hide1').style.display='block'
+            document.getElementById('hide').style.display='block'
+            document.getElementById("myImg1").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png';
+
+            let x = Math.floor(Math.random() * 3);
+    let ans=com[x]
+
+            if(ans == a){
+                document.getElementById("myImg").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png';
+                result.innerHTML='tie'
+                tierate.innerHTML=tie=tie+1
+            }else if(ans != a){
+                  if(ans == 'rock'){
+                    document.getElementById("myImg").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png';
+                    result.innerHTML='win'
+                    winrate.innerHTML=win=win+1
+                  }else if(ans == 'scicoor'){
+                    document.getElementById("myImg").src = "https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png";
+                    result.innerHTML='lose'
+                    lossrate.innerHTML=loss=loss+1
+                  }
+            }
+            
+
+         }
+
+         function scicoor(a){
+            document.getElementById('hide1').style.display='block'
+            document.getElementById('hide').style.display='block'
+            document.getElementById("myImg1").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png';
+
+            let x = Math.floor(Math.random() * 3);
+    let ans=com[x]
+
+            if(ans == a){
+                document.getElementById("myImg").src = "https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png";
+                result.innerHTML='tie'
+                tierate.innerHTML=tie=tie+1
+            }else if(ans != a){
+                  if(ans == 'rock'){
+                    document.getElementById("myImg").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png';
+                    result.innerHTML='lose'
+                    lossrate.innerHTML=loss=loss+1
+                  }else if(ans == 'papper'){
+                    document.getElementById("myImg").src = 'https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png';
+                    result.innerHTML='win'
+                    winrate.innerHTML=win=win+1
+                  }
+            }
+         }
+    </script>
+</body>
+</html>

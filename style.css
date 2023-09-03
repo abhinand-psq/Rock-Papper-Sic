@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+}
+
+.main img{
+    border: solid 2px white;
+   border-radius: 100px;
+   padding: 30px;
+   
+}
+
+button{
+    border-radius: 8px;
+    padding:5px 15px;
+    border: none;
+
+}
+
